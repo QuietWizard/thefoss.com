@@ -1,10 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
 import { words } from "../constants";
-import HeroExperience from "../components/HeroModels/HeroExperience";
 
 const Hero = () => {
 	useGSAP(() => {
@@ -50,27 +47,19 @@ const Hero = () => {
 							<h1>that Deliver Results</h1>
 						</div>
 
-						<p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-							Hi, I’m Michael, a developer based in Southern California with a passion for code.
+						<p className="text-white-50 md:text-xl relative z-10 pointer-events-none w-1/2">
+							Hi, I’m Michael, a Southern California native who has spent the past 3 decades in programming and system engineering. I have a passion for creating innovative solutions that drive business success. I specialize in eCommerce, web development, and system integration. I am dedicated to delivering high-quality results that exceed client expectations.
 						</p>
-
-						<Button
-							text="See My Work"
-							className="md:w-80 md:h-16 w-60 h-12"
-							id="counter"
-						/>
 					</div>
 				</header>
 
 				{/* RIGHT: 3D Model or Visual */}
 				<figure>
-					<div className="hero-3d-layout">
-						<HeroExperience />
+					<div className="hero-portrait">
+						
 					</div>
 				</figure>
 			</div>
-
-			<AnimatedCounter />
 		</section>
 	);
 };

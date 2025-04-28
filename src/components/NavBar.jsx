@@ -25,7 +25,7 @@ const NavBar = () => {
               <li key={name} className="group">
                 <a href={link}>
                   <span>{name}</span>
-                  <pan className="underline" />
+                  <span className="underline" />
                 </a>
               </li>
             ))}
