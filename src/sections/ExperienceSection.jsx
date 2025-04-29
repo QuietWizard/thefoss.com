@@ -9,32 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   useGSAP(() => {
-    // Loop through each timeline card and animate them in
-    // as the user scrolls to each card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      // Animate the card coming in from the left
-      // and fade in
-      gsap.from(card, {
-        // Move the card in from the left
-        xPercent: -100,
-        // Make the card invisible at the start
-        opacity: 0,
-        // Set the origin of the animation to the left side of the card
-        transformOrigin: "left left",
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the card is 80% of the way down the screen
-        scrollTrigger: {
-          // The card is the trigger element
-          trigger: card,
-          // Trigger the animation when the card is 80% down the screen
-          start: "top 80%",
-        },
-      });
-    });
-
     // Animate the timeline height as the user scrolls
     // from the top of the timeline to 70% down the screen
     // The timeline height should scale down from 1 to 0
@@ -61,9 +35,9 @@ const Experience = () => {
       },
     });
 
-    // Loop through each expText element and animate them in
+    // Loop through each expImg element and animate them in
     // as the user scrolls to each text element
-    gsap.utils.toArray(".expText").forEach((text) => {
+    gsap.utils.toArray(".expImg").forEach((text) => {
       // Animate the text opacity from 0 to 1
       // and move it from the left to its final position
       // over 1 second with a power2 ease-in-out curve
@@ -130,7 +104,7 @@ const Experience = () => {
                         )}
                       </ul>
                       <div>
-                        <img src={card.imgPath} alt="exp-img" className="mt-10" />
+                        <img src={card.imgPath} alt="exp-img" className="expImg mt-10" />
                       </div>
                     </div>
                   </div>
