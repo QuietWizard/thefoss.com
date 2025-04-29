@@ -71,39 +71,41 @@ const techStackImgs = [
 
 const expCards = [
   {
-    imgPath: "/images/expQWS.png",
-    logoPath: "/images/logoQWS.png",
+    imgPath: "/images/rb_exp.png",
+    logoPath: "/images/qws_logo.png",
     company: "QuietWizard Studios",
     title: "Founder & CEO",
     date: "January 2017 - Present",
     responsibilities: [
-      "Migrate a .Net eCommerce site to Magento Enterprise Cloud in less than 6 months while ",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Completed the eCommerce platform migration from a custom eCommerce CMS in ASP/C# to Magento 2.2 Cloud Enterprise Edition.",
+      "Developed and maintained geolocation services for city and state level targeting which allowed custom content to be displayed for the market close to the physical retail stores.",
+      "Managed and maintained the infrastructure for both the local and cloud development/production environments.",
+      "Converted over 200 landing pages from custom .net code to clean and reusable HTML/CSS/JS/Bootstrap code."
     ],
   },
   {
-    imgPath: "/images/expEL.png",
-    logoPath: "/images/logoEL.png",
+    imgPath: "/images/el_exp.png",
+    logoPath: "/images/el_logo.png",
     company: "EquiLife",
     title: "Vice President of Technology",
     date: "November 2021 - March 2025",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Manage the full SDLC for building a custom Labs Registration and Administration Portal with latest .Net Core and Azure technology.",
+      "Rebuilt the Logistics Pipeline (OMS, WMS and 3PL) with automation that directly connects to Shopify. This also required a overhaul of our entire SKU system.",
+      "Completed the successful launch of the Ayubowan program, which included iOS, Android and Web apps as well as a WordPress CMS.",
     ],
   },
   {
-    imgPath: "/images/expZR.png",
-    logoPath: "/images/logoZR.png",
+    imgPath: "/images/zr_exp.png",
+    logoPath: "/images/zr_logo.png",
     company: "Zymo Research",
     title: "Web Development Manager",
     date: "May 2018 - Nov 2021",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Completed the eCommerce platform migration from Magento to Shopify Plus for US and International.",
+      "Managed the development and maintenance for the Shopify eCommerce website as well as the custom internal websites and applications.",
+      "Managed the Azure and AWS infrastructure, including VM’s, Serverless/Microservice applications, CMS Caching, Routing as well as CI/CD pipelines.",
+      "Used Docker to create a Web Service of a Python/Flask metafield manager application.",
     ],
   },
 ];

@@ -15,10 +15,6 @@ body {
   font-family: "Mona Sans", sans-serif;
 }
 
-section {
-  width: 100dvw;
-}
-
 @theme {
   --font-sans: "Mona Sans", sans-serif;
   --color-white-50: #d9ecff;
@@ -39,16 +35,15 @@ section {
 }
 
 @layer components {
+  section {
+    @apply w-full max-w-[1400px] mt-50 mx-auto
+  }
   .padding-x {
     @apply px-5 md:px-10;
   }
   
   .padding-x-lg {
     @apply px-5 md:px-20;
-  }
-  
-  .section-padding {
-    @apply px-5 md:px-10 md:mt-40 mt-20;
   }
   
   .mt-responsive {
@@ -79,27 +74,33 @@ section {
   .grid-12-cols {
     @apply grid grid-cols-1 xl:grid-cols-12 gap-10;
   }
-  
+
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply grid lg:grid-cols-2 grid-cols-1 lg:gap-16 md:gap-10 gap-5 mt-16 xl:mt-20 mt-32 flex xl:items-center items-start justify-center;
   }
   
   .hero-text {
-    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+    @apply flex flex-col justify-center pointer-events-none mx-10 mt-10 row-start-2 lg:row-start-1 lg:col-start-1;
+    h3 {
+      @apply text-[30px] md:text-[48px] font-semibold
+    }
+    p {
+      @apply text-[16px] md:text-[30px]
+    }
     img {
-      @apply size-8 md:size-10 object-contain;
+      @apply size-8 xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50 object-contain
     }
     .slide {
       @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
     }
   }
-  
-  .hero-badge {
-    @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
-  }
-  
-  .hero-3d-layout {
-    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+
+  .hero-portrait {
+    @apply flex md:flex-col-reverse flex-col justify-center items-center row-start-1 lg:col-start-2;
+    img {
+      @apply rounded-full w-[50%] md:w-[40%] lg:w-[80%] max-w-md;
+    }
+    
   }
   
   .navbar {
@@ -110,7 +111,7 @@ section {
     }
     
     &.not-scrolled {
-      @apply md:top-10 top-0 bg-transparent;
+      @apply md:top-0 top-0 bg-transparent;
     }
     
     .inner {
@@ -239,7 +240,7 @@ section {
   }
   
   .timeline-wrapper {
-    @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
+    @apply absolute top-0 left-[2.5vw] h-full flex justify-center;
   }
   
   .timeline {
@@ -263,7 +264,7 @@ section {
   }
   
   .tech-card-content {
-    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10 group-hover:cursor-grab;
+    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[35vh] overflow-hidden relative z-10 group-hover:cursor-grab;
     
     & p {
       @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-white-50 text-center;
@@ -271,11 +272,11 @@ section {
   }
   
   .tech-grid {
-    @apply grid place-items-center xl:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
+    @apply grid xl:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
   }
   
   .tech-icon-wrapper {
-    @apply flex justify-center items-center w-35 h-40 relative;
+    @apply flex justify-center items-center w-52 h-60 relative;
   }
   
   form {
@@ -298,26 +299,14 @@ section {
   }
   
   .footer {
-    @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20;
-    
-    .footer-container {
-      @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;
-    }
+    @apply my-10 text-white-50 px-5 md:px-20 xl:px-20;
     
     p {
-      @apply text-center md:text-start;
+      @apply text-center;
     }
-    
-    .socials {
-      @apply flex items-center justify-center gap-5;
       
-      .icon {
-        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
-      }
-      
-      img {
-        @apply inline-block;
-      }
+    .icon {
+      @apply inline-block border border-black-50 bg-black-100 rounded-xl p-3 cursor-pointer transition-all duration-500 hover:bg-black-50;
     }
   }
 }
