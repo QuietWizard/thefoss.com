@@ -74,7 +74,7 @@ const expCards = [
     imgPath: "/images/rb_exp.png",
     logoPath: "/images/qws_logo.png",
     company: "QuietWizard Studios",
-    title: "Founder & CEO",
+    title: "Founder",
     date: "January 2017 - Present",
     responsibilities: [
       "Completed the eCommerce platform migration from a custom eCommerce CMS in ASP/C# to Magento 2.2 Cloud Enterprise Edition.",
