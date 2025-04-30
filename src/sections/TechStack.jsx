@@ -1,35 +1,26 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
 import TitleHeader from "../components/TitleHeader";
 import TechIcon from "../components/Models/TechLogos/TechIcon.jsx";
-// import { techStackIcons } from "../constants";
 import { techStackImgs } from "../constants";
 
 const TechStack = () => {
-  // Animate the tech cards in the skills section
   useGSAP(() => {
-    // This animation is triggered when the user scrolls to the #skills wrapper
-    // The animation starts when the top of the wrapper is at the center of the screen
-    // The animation is staggered, meaning each card will animate in sequence
-    // The animation ease is set to "power2.inOut", which is a slow-in fast-out ease
     gsap.fromTo(
       ".tech-card",
       {
-        // Initial values
-        y: 50, // Move the cards down by 50px
-        opacity: 0, // Set the opacity to 0
+        y: 50,
+        opacity: 0,
       },
       {
-        // Final values
-        y: 0, // Move the cards back to the top
-        opacity: 1, // Set the opacity to 1
-        duration: 1, // Duration of the animation
-        ease: "power2.inOut", // Ease of the animation
-        stagger: 0.2, // Stagger the animation by 0.2 seconds
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+        stagger: 0.2,
         scrollTrigger: {
-          trigger: "#skills", // Trigger the animation when the user scrolls to the #skills wrapper
-          start: "top center", // Start the animation when the top of the wrapper is at the center of the screen
+          trigger: "#skills",
+          start: "top center",
         },
       }
     );
@@ -43,10 +34,6 @@ const TechStack = () => {
           sub="🤝 What I Bring to the Table"
         />
         <div className="tech-grid">
-          {/* Loop through the techStackIcons array and create a component for each item.
-              The key is set to the name of the tech stack icon, and the classnames are set to
-              card-border, tech-card, overflow-hidden, and group. The xl:rounded-full and rounded-lg
-              classes are only applied on larger screens. */}
           {techStackImgs.map((techStackIcon, index) => (
             <div
               key={index}
@@ -57,7 +44,7 @@ const TechStack = () => {
                 <div className="tech-icon-wrapper">
                   <img src={techStackIcon.imgPath} alt="" />
                 </div>
-                <div className="padding-x w-full">
+                <div className="w-full xl:w-[70%] pt-5 xl:pt-0">
                   <p>{techStackIcon.name}</p>
                 </div>
               </div>
