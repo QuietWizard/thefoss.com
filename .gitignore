@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Next.js / Netlify build output
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
 # User-specific files
 *.rsuser
 *.suo

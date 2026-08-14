@@ -1,10 +1,26 @@
-import { useGLTF } from "@react-three/drei";
+"use client";
 
-export function Computer(props) {
+import { useGLTF } from "@react-three/drei";
+import type { ThreeElements } from "@react-three/fiber";
+import type { Mesh, MeshStandardMaterial } from "three";
+import type { GLTF } from "three-stdlib";
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Cube000_ComputerDesk_0001_1: Mesh;
+		Cube000_ComputerDesk_0001_2: Mesh;
+	};
+	materials: {
+		"ComputerDesk.001": MeshStandardMaterial;
+		"FloppyDisk.001": MeshStandardMaterial;
+	};
+};
+
+export function Computer(props: ThreeElements['group']) {
 	const { nodes, materials } = useGLTF(
 		"/models/computer-optimized-transformed.glb"
-	);
-	
+	) as unknown as GLTFResult;
+
 	return (
 		<group {...props} dispose={null}>
 			<group position={[-4.005, 67.549, 58.539]}>

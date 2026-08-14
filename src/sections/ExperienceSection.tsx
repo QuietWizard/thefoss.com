@@ -1,3 +1,5 @@
+"use client";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,7 +25,7 @@ const Experience = () => {
       },
     });
 
-    gsap.utils.toArray(".expImg").forEach((text) => {
+    gsap.utils.toArray<Element>(".expImg").forEach((text) => {
       gsap.from(text, {
         opacity: 0,
         xPercent: 0,

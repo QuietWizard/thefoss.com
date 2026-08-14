@@ -1,6 +1,9 @@
-import React from 'react'
+interface TitleHeaderProps {
+  title: string;
+  sub: string;
+}
 
-const TitleHeader = ({ title, sub }) => {
+const TitleHeader = ({ title, sub }: TitleHeaderProps) => {
   return (
     <div className="flex flex-col items-center gap-3">
       <div className="hero-badge">

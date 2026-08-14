@@ -1,35 +1,48 @@
-import { useRef, useState } from "react";
+"use client";
+
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/ContactExperience";
 
+interface ContactForm {
+	name: string;
+	email: string;
+	message: string;
+}
+
 const Contact = () => {
-	const formRef = useRef(null);
+	const formRef = useRef<HTMLFormElement>(null);
 	const [loading, setLoading] = useState(false);
-	const [form, setForm] = useState({
+	const [form, setForm] = useState<ContactForm>({
 		name: "",
 		email: "",
 		message: "",
 	});
-	
-	const handleChange = (e) => {
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setForm({ ...form, [name]: value });
 	};
-	
-	const handleSubmit = async (e) => {
+
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
-		
+
+		if (!formRef.current) {
+			setLoading(false);
+			return;
+		}
+
 		try {
 			await emailjs.sendForm(
-				import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-				import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+				process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+				process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
 				formRef.current,
-				import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+				process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
 			);
-			
+
 			setForm({ name: "", email: "", message: "" });
 		} catch (error) {
 			console.error("EmailJS Error:", error);
@@ -37,7 +50,7 @@ const Contact = () => {
 			setLoading(false);
 		}
 	};
-	
+
 	return (
 		<section id="contact" className="flex-center">
 			<div className="w-full h-full md:px-10 px-5">
@@ -65,7 +78,7 @@ const Contact = () => {
 										required
 									/>
 								</div>
-								
+
 								<div>
 									<label htmlFor="email">Your Email</label>
 									<input
@@ -78,7 +91,7 @@ const Contact = () => {
 										required
 									/>
 								</div>
-								
+
 								<div>
 									<label htmlFor="message">Your Message</label>
 									<textarea
@@ -87,11 +100,11 @@ const Contact = () => {
 										value={form.message}
 										onChange={handleChange}
 										placeholder="How can I help you?"
-										rows="5"
+										rows={5}
 										required
 									/>
 								</div>
-								
+
 								<button type="submit">
 									<div className="cta-button group">
 										<div className="bg-circle" />

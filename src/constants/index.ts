@@ -1,15 +1,51 @@
-const navLinks = [
+export interface NavLink {
+  name: string;
+  link: string;
+}
+
+export interface Word {
+  text: string;
+  imgPath: string;
+}
+
+export interface Ability {
+  imgPath: string;
+  title: string;
+  desc: string;
+}
+
+export interface TechStackImg {
+  name: string;
+  imgPath: string;
+}
+
+export interface ExpCard {
+  imgPath: string;
+  logoPath: string;
+  company: string;
+  title: string;
+  date: string;
+  responsibilities: string[];
+}
+
+export interface SocialImg {
+  name: string;
+  imgPath: string;
+  link: string;
+}
+
+const navLinks: NavLink[] = [
   {
     name: "Experience",
-    link: "#experience",
+    link: "/experience",
   },
   {
     name: "Skills",
-    link: "#skills",
+    link: "/skills",
   },
 ];
 
-const words = [
+const words: Word[] = [
   { text: "eCommerce", imgPath: "/images/cart.svg" },
   { text: "Code", imgPath: "/images/code.svg" },
   { text: "Designs", imgPath: "/images/designs.svg" },
@@ -20,7 +56,7 @@ const words = [
   { text: "Concepts", imgPath: "/images/concepts.svg" },
 ];
 
-const abilities = [
+const abilities: Ability[] = [
   {
     imgPath: "/images/seo.png",
     title: "SEO Optimization",
@@ -38,7 +74,7 @@ const abilities = [
   },
 ];
 
-const techStackImgs = [
+const techStackImgs: TechStackImg[] = [
   {
     name: "Shopify Developer",
     imgPath: "/images/logos/shopify.png",
@@ -69,7 +105,7 @@ const techStackImgs = [
   },
 ];
 
-const expCards = [
+const expCards: ExpCard[] = [
   {
     imgPath: "/images/rb_exp.png",
     logoPath: "/images/qws_logo.png",
@@ -110,7 +146,7 @@ const expCards = [
   },
 ];
 
-const socialImgs = [
+const socialImgs: SocialImg[] = [
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",

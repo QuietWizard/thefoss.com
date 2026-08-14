@@ -1,8 +1,12 @@
+"use client";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TitleHeader from "../components/TitleHeader";
-import TechIcon from "../components/Models/TechLogos/TechIcon.jsx";
 import { techStackImgs } from "../constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TechStack = () => {
   useGSAP(() => {
