@@ -1,36 +1,36 @@
 "use client";
 
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import { useRef, type MouseEvent, type ReactNode, type CSSProperties } from "react";
 
 interface GlowCardProps {
-  card: string;
-  index: number;
   children: ReactNode;
+  padding?: string;
+  glow?: boolean;
+  className?: string;
+  style?: CSSProperties;
 }
 
-const GlowCard = ({ index, children }: GlowCardProps) => {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+const GlowCard = ({ children, padding = "p-[30px]", glow = true, className = "", style }: GlowCardProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  const handleMouseMove = (index: number, e: MouseEvent<HTMLDivElement>) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
     const mouseX = e.clientX - rect.left - rect.width / 2;
     const mouseY = e.clientY - rect.top - rect.height / 2;
-
     let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
     angle = (angle + 360) % 360;
-    card.style.setProperty("--start", (angle + 60).toString());
+    el.style.setProperty("--start", (angle + 60).toString());
   };
 
   return (
     <div
-      ref={(el) => { cardRefs.current[index] = el; }}
-      onMouseMove={(e) => handleMouseMove(index, e)}
-      className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column"
+      ref={ref}
+      onMouseMove={glow ? handleMouseMove : undefined}
+      className={`${glow ? "mf-glow " : ""}rounded-card border border-ink-600 bg-ink-800 ${padding} ${className}`}
+      style={style}
     >
-      <div className="glow"></div>
       {children}
     </div>
   );

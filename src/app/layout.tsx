@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+      </head>
       <body>
         <NavBar />
         {children}
