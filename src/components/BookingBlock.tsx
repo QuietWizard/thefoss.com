@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import Button from "./Button";
+import { calendlyUrl } from "../constants";
 
 interface BookingBlockProps {
   url?: string;
@@ -10,7 +11,7 @@ interface BookingBlockProps {
 }
 
 const BookingBlock = ({
-  url = "https://calendly.com/michaelfoss",
+  url = calendlyUrl,
   title = "Book a 30 minute call",
   blurb = "Pick a time that works and we'll talk through what you're building. No pitch, no pressure — just a conversation about the problem.",
 }: BookingBlockProps) => {
@@ -27,7 +28,7 @@ const BookingBlock = ({
       </div>
       <div>
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
-        <div className="calendly-inline-widget rounded-[14px]" data-url={url} style={{ minWidth: 320, height: 480 }} />
+        <div className="calendly-inline-widget rounded-[14px]" data-url={url} style={{ minWidth: 320, height: 600 }} />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface TechCardProps {
   label: string;
@@ -26,9 +27,11 @@ const TechCard = ({ label, icon, shape = "pill" }: TechCardProps) => {
       />
       <div className="relative z-10 flex flex-col items-center gap-4">
         {icon ? (
-          <img
+          <Image
             src={icon}
             alt=""
+            width={56}
+            height={56}
             className={`h-14 w-14 object-contain transition-all duration-300 ${hot ? "grayscale-0" : "grayscale-[.4]"}`}
           />
         ) : (

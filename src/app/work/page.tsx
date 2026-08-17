@@ -15,10 +15,12 @@ export default function WorkPage() {
     <section className="pt-[64px] pb-[44px]">
       <div className="max-w-[760px]">
         <p className="text-micro font-semibold tracking-label text-amber-400 uppercase">Selected work · 2017 — 2026</p>
-        <h1 className="mt-[16px] font-display text-display-2 font-medium text-paper-0">Platforms, migrations and teams.</h1>
+        <h1 className="mt-[16px] font-display text-[32px] leading-[1.1] font-medium tracking-h text-paper-0 sm:text-[40px] md:text-display-2">
+          Platforms, migrations and teams.
+        </h1>
         <p className="mt-[22px] text-lede text-paper-300">
-          Five engagements, from a two-person startup to enterprise storefronts serving US and international markets.
-          Each one started with a system nobody could reason about anymore.
+          Eight engagements, from a two-person startup to enterprise storefronts serving US and international
+          markets. Each one started with a system nobody could reason about anymore.
         </p>
       </div>
 

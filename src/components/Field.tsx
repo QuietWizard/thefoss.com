@@ -17,7 +17,7 @@ interface FieldProps {
 const Field = ({ label, name, type = "text", value, onChange, placeholder, rows, required = false, error }: FieldProps) => {
   const [focus, setFocus] = useState(false);
   const borderColor = error ? "border-signal-error" : focus ? "border-amber-400" : "border-transparent";
-  const controlClasses = `w-full rounded-md border bg-ink-700 px-4 py-[14px] text-body text-paper-0 outline-none placeholder:text-paper-400 ${borderColor} ${rows ? "resize-y" : ""}`;
+  const controlClasses = `w-full rounded-md border bg-ink-700 px-4 py-[14px] text-body text-paper-0 outline-none placeholder:text-paper-300 ${borderColor} ${rows ? "resize-y" : ""}`;
 
   return (
     <div className="flex flex-col gap-[7px]">

@@ -1,7 +1,8 @@
 "use client";
 
-import { navLinks } from "../constants";
+import { calendlyUrl, navLinks } from "../constants";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
@@ -34,9 +35,11 @@ const NavBar = () => {
     >
       <div className="mx-auto flex h-[82px] max-w-[1180px] items-center justify-between gap-[30px] px-5 md:px-[48px]">
         <Link href="/" className="flex items-center gap-[11px]">
-          <img
-            src="/images/headshot.jpg"
+          <Image
+            src="/images/fav.png"
             alt="Michael Foss"
+            width={36}
+            height={36}
             className="h-9 w-9 rounded-full border border-amber-700 object-cover"
           />
           <span className="font-display text-[23px] font-medium tracking-[-.01em] text-paper-0">Michael Foss</span>
@@ -61,7 +64,7 @@ const NavBar = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="https://calendly.com/michaelfoss" target="_blank" rel="noopener noreferrer">
+          <Button href={calendlyUrl} target="_blank" rel="noopener noreferrer">
             Book a call
           </Button>
         </div>
@@ -73,7 +76,7 @@ const NavBar = () => {
           onClick={() => setOpen((v) => !v)}
           className="flex h-9 w-9 items-center justify-center lg:hidden"
         >
-          <img src="/images/menu.svg" alt="" className="h-5 w-5 invert" />
+          <Image src="/images/menu.svg" alt="" width={20} height={20} className="h-5 w-5 invert" />
         </button>
       </div>
 
@@ -87,7 +90,7 @@ const NavBar = () => {
             ))}
           </nav>
           <div className="mt-5">
-            <Button href="https://calendly.com/michaelfoss" target="_blank" rel="noopener noreferrer" full>
+            <Button href={calendlyUrl} target="_blank" rel="noopener noreferrer" full>
               Book a call
             </Button>
           </div>

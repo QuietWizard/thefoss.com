@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import GlowCard from "./GlowCard";
 import Tag from "./Tag";
@@ -15,8 +16,8 @@ interface WorkCardProps {
 const WorkCardInner = ({ index, title, meta, blurb, tags, image }: Omit<WorkCardProps, "href">) => (
   <GlowCard padding="p-[30px]" className="flex h-full flex-col">
     {image && (
-      <div className="-mx-[30px] -mt-[30px] mb-[22px] h-[176px] overflow-hidden rounded-t-[14px]">
-        <img src={image} alt={title} className="h-full w-full object-cover" />
+      <div className="relative -mx-[30px] -mt-[30px] mb-[22px] h-[176px] overflow-hidden rounded-t-[14px]">
+        <Image src={image} alt={title} fill sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" className="object-cover" />
       </div>
     )}
     {index && <p className="font-display text-[15px] font-medium tracking-[.04em] text-amber-400">{index}</p>}

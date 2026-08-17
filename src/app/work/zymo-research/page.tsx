@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Button from "../../../components/Button";
 import Tag from "../../../components/Tag";
 import GlowCard from "../../../components/GlowCard";
@@ -35,25 +36,33 @@ export default function ZymoCaseStudyPage() {
       </Button>
 
       <div className="mt-[22px] flex items-center gap-[16px]">
-        <img src={zymo.logo ?? undefined} alt="Zymo Research" className="h-12 w-12 rounded-full object-contain" />
+        {zymo.logo && <Image src={zymo.logo} alt="Zymo Research" width={48} height={48} className="h-12 w-12 rounded-full object-contain" />}
         <Tag tone="accent">Case study</Tag>
       </div>
 
-      <h1 className="mt-[16px] max-w-[820px] font-display text-display-2 font-medium text-paper-0">
+      <h1 className="mt-[16px] max-w-[820px] font-display text-[28px] leading-[1.15] font-medium tracking-h text-paper-0 sm:text-[36px] md:text-display-2">
         Moving two storefronts off Magento — without pausing the business.
       </h1>
 
       <div className="mt-[44px] grid grid-cols-2 border-y border-ink-600 md:grid-cols-4">
         {facts.map(([key, value], i) => (
           <div key={key} className={`p-[22px] ${i > 0 ? "border-ink-600 md:border-l" : ""}`}>
-            <p className="text-micro font-semibold tracking-label text-paper-400 uppercase">{key}</p>
+            <p className="text-micro font-semibold tracking-label text-paper-300 uppercase">{key}</p>
             <p className="mt-1 text-body-sm text-paper-0">{value}</p>
           </div>
         ))}
       </div>
 
       {zymo.image && (
-        <img src={zymo.image} alt="Zymo Research storefront" className="mt-[44px] w-full rounded-card border border-ink-600" />
+        <Image
+          src={zymo.image}
+          alt="Zymo Research storefront"
+          width={1600}
+          height={921}
+          sizes="(max-width: 1180px) 100vw, 1180px"
+          priority
+          className="mt-[44px] h-auto w-full rounded-card border border-ink-600"
+        />
       )}
 
       <div className="mx-auto mt-[64px] max-w-[820px]">
@@ -81,9 +90,7 @@ export default function ZymoCaseStudyPage() {
           </p>
           <GlowCard glow={false} padding="p-[22px]" className="mt-[22px] !border-dashed !border-amber-700">
             <p className="text-meta text-amber-400">
-              Placeholder — numbers needed. This is where the outcome metrics belong: revenue or conversion change,
-              page speed before/after, deploy frequency, hours saved. Nothing here is invented, so the section
-              stays empty until you supply them.
+              Increased web revenue from $7 million to over $30 million during my 3 years at Zymo, while also reducing the number of support tickets and engineering hours required to maintain the storefronts.
             </p>
           </GlowCard>
         </Chapter>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeader from "../../components/SectionHeader";
 import Tag from "../../components/Tag";
 import Booking from "../../sections/Booking";
@@ -16,7 +17,7 @@ const facts: [string, string][] = [
 
 const Row = ({ k, v }: { k: string; v: string }) => (
   <div className="flex items-center justify-between gap-4 border-b border-ink-600 py-[11px] text-meta">
-    <span className="text-paper-400">{k}</span>
+    <span className="text-paper-300">{k}</span>
     <span className="text-right text-paper-0">{v}</span>
   </div>
 );
@@ -28,7 +29,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 items-start gap-[64px] lg:grid-cols-[1.4fr_1fr]">
           <div>
             <p className="text-micro font-semibold tracking-label text-amber-400 uppercase">About</p>
-            <h1 className="mt-[16px] font-display text-display-2 font-medium text-paper-0">
+            <h1 className="mt-[16px] font-display text-[32px] leading-[1.1] font-medium tracking-h text-paper-0 sm:text-[40px] md:text-display-2">
               Three decades of building things that had to work.
             </h1>
             <p className="mt-[22px] text-lede text-paper-200">
@@ -40,10 +41,12 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <img
+            <Image
               src="/images/headshot.jpg"
               alt="Michael Foss"
-              className="w-full max-w-[300px] rounded-lg object-cover grayscale-[.15]"
+              width={300}
+              height={300}
+              className="w-full max-w-[300px]! rounded-lg object-cover grayscale-[.15]"
             />
             <div className="mt-[22px] flex flex-col">
               {facts.map(([k, v]) => (

@@ -15,6 +15,7 @@ const Timeline = () => {
             company={r.org}
             role={r.role}
             date={r.date}
+            blurb={r.blurb}
             bullets={r.bullets}
             last={i === roles.length - 1}
           />

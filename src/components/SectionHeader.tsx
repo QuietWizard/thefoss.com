@@ -14,7 +14,9 @@ const SectionHeader = ({ title, sub, align = "center", className = "" }: Section
           {sub}
         </div>
       )}
-      <h2 className="max-w-[18ch] font-display text-display-3 font-medium tracking-h text-paper-0">{title}</h2>
+      <h2 className="max-w-[18ch] font-display text-[26px] leading-[1.15] font-medium tracking-h text-paper-0 sm:text-[30px] md:text-display-3">
+        {title}
+      </h2>
     </div>
   );
 };

@@ -25,13 +25,15 @@ const ContactForm = () => {
       return;
     }
 
+    const { NEXT_PUBLIC_EMAILJS_SERVICE_ID: serviceId, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: templateId, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: publicKey } = process.env;
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS Error: missing NEXT_PUBLIC_EMAILJS_* environment variables");
+      setState("idle");
+      return;
+    }
+
     try {
-      await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
+      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
       setState("sent");
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
