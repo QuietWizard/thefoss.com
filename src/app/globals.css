@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+/* ── Design tokens — warm-dark amber system ── */
+:root {
+  /* Ink: near-black surfaces, slightly warm of pure #000 */
+  --ink-900: #08080a;
+  --ink-850: #0b0b0c;
+  --ink-800: #101013;
+  --ink-750: #16161a;
+  --ink-700: #1c1c21;
+  --ink-600: #24242a;
+  --ink-500: #33333b;
+  --ink-400: #4a4a52;
+
+  /* Paper: warm off-white type, never pure #fff */
+  --paper-0: #f6f4f0;
+  --paper-100: #e4ded4;
+  --paper-200: #c9c3b9;
+  --paper-300: #948f88;
+  --paper-400: #6b675f;
+
+  /* Amber: the signature accent */
+  --amber-100: #fdf0dc;
+  --amber-200: #f9d8a3;
+  --amber-300: #f7bc63;
+  --amber-400: #f0a030;
+  --amber-500: #d4841a;
+  --amber-600: #a6620f;
+  --amber-700: #4a3a1c;
+  --amber-ink: #141005;
+
+  /* Signals — form validation only */
+  --signal-error: #e0603c;
+  --signal-success: #7fa65a;
+
+  /* Semantic aliases */
+  --bg: var(--ink-900);
+  --surface-card: var(--ink-800);
+  --surface-raised: var(--ink-750);
+  --surface-inset: var(--ink-700);
+  --border-subtle: var(--ink-600);
+  --border-strong: var(--ink-500);
+  --border-warm: var(--amber-700);
+  --text-primary: var(--paper-0);
+  --text-secondary: var(--paper-200);
+  --text-muted: var(--paper-300);
+  --text-faint: var(--paper-400);
+  --accent: var(--amber-400);
+  --accent-hover: var(--amber-300);
+  --accent-press: var(--amber-500);
+  --link: var(--amber-400);
+  --link-hover: var(--amber-300);
+  --focus-ring: var(--amber-300);
+
+  /* Glow & gradients — the brand's one atmospheric effect */
+  --glow-hero: radial-gradient(ellipse at center, rgba(240, 160, 48, 0.19), rgba(240, 160, 48, 0) 68%);
+  --glow-card: radial-gradient(220px circle at 70% 0%, rgba(240, 160, 48, 0.16), transparent 70%);
+  --glow-halo: 0 0 0 4px rgba(240, 160, 48, 0.18);
+  --glow-cursor: conic-gradient(
+    from calc((var(--start, 0) - 15) * 1deg),
+    rgba(240, 160, 48, 0.12) 0deg,
+    var(--amber-300),
+    rgba(240, 160, 48, 0) 100deg
+  );
+  --rail-gradient: linear-gradient(
+    0deg,
+    rgba(240, 160, 48, 0) 0%,
+    #f7bc63 25%,
+    #f0a030 37.51%,
+    #d4841a 62.83%,
+    #a6620f 92.91%
+  );
+  --edge-fade-left: linear-gradient(90deg, var(--ink-900) 0%, rgba(8, 8, 10, 0) 100%);
+  --edge-fade-right: linear-gradient(-90deg, var(--ink-900) 0%, rgba(8, 8, 10, 0) 100%);
+
+  /* Motion — carried over from the original site */
+  --ease-out: cubic-bezier(0.71, 0.03, 0.34, 1);
+  --ease-slide: cubic-bezier(0.9, 0.01, 0.3, 0.99);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 250ms;
+  --dur-med: 300ms;
+  --dur-slow: 500ms;
+  --dur-glow: 700ms;
+}
+
+html,
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  font-family: var(--font-mona-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+@theme {
+  --font-sans: var(--font-mona-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-playfair-display), Georgia, "Times New Roman", serif;
+
+  --color-ink-900: #08080a;
+  --color-ink-850: #0b0b0c;
+  --color-ink-800: #101013;
+  --color-ink-750: #16161a;
+  --color-ink-700: #1c1c21;
+  --color-ink-600: #24242a;
+  --color-ink-500: #33333b;
+  --color-ink-400: #4a4a52;
+
+  --color-paper-0: #f6f4f0;
+  --color-paper-100: #e4ded4;
+  --color-paper-200: #c9c3b9;
+  --color-paper-300: #948f88;
+  --color-paper-400: #6b675f;
+
+  --color-amber-100: #fdf0dc;
+  --color-amber-200: #f9d8a3;
+  --color-amber-300: #f7bc63;
+  --color-amber-400: #f0a030;
+  --color-amber-500: #d4841a;
+  --color-amber-600: #a6620f;
+  --color-amber-700: #4a3a1c;
+  --color-amber-ink: #141005;
+
+  --color-signal-error: #e0603c;
+  --color-signal-success: #7fa65a;
+
+  /* Irregular spacing scale — literal values, not a generated ramp */
+  --spacing-xxs: 4px;
+  --spacing-xs: 7px;
+  --spacing-sm: 11px;
+  --spacing-md: 16px;
+  --spacing-lg: 22px;
+  --spacing-xl: 30px;
+  --spacing-2xl: 44px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  --spacing-gutter: 48px;
+  --spacing-gutter-tight: 20px;
+  --spacing-nav-h: 82px;
+  --spacing-section-y: 96px;
+  --spacing-section-y-tight: 64px;
+
+  --width-maxw: 1180px;
+  --width-maxw-prose: 660px;
+
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-card: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Type scale — literal px values from the approved design, not a generated ramp */
+  --text-display-1: 84px;
+  --text-display-1--line-height: 1.03;
+  --text-display-1--letter-spacing: -0.028em;
+  --text-display-2: 52px;
+  --text-display-2--line-height: 1.06;
+  --text-display-2--letter-spacing: -0.028em;
+  --text-display-3: 38px;
+  --text-display-3--line-height: 1.1;
+  --text-display-3--letter-spacing: -0.015em;
+  --text-h1: 31px;
+  --text-h1--line-height: 1.2;
+  --text-h2: 26px;
+  --text-h2--line-height: 1.25;
+  --text-h3: 21px;
+  --text-h3--line-height: 1.3;
+  --text-lede: 19px;
+  --text-lede--line-height: 1.62;
+  --text-body: 16px;
+  --text-body--line-height: 1.62;
+  --text-body-sm: 15px;
+  --text-body-sm--line-height: 1.6;
+  --text-ui: 14px;
+  --text-ui--line-height: 1.2;
+  --text-meta: 13.5px;
+  --text-meta--line-height: 1.4;
+  --text-label: 12px;
+  --text-label--line-height: 1.4;
+  --text-micro: 11.5px;
+  --text-micro--line-height: 1;
+
+  --tracking-display: -0.028em;
+  --tracking-h: -0.015em;
+  --tracking-wide: 0.07em;
+  --tracking-label: 0.16em;
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+}
+
+@layer components {
+  section {
+    @apply w-full max-w-[var(--width-maxw)] mx-auto px-5 md:px-[var(--spacing-gutter)];
+  }
+}
+
+/* ── The glow border — brand's signature hover effect (GlowCard) ── */
+.mf-glow {
+  --start: 0;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--dur-glow) var(--ease-standard);
+}
+.mf-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: var(--glow-cursor);
+  mask:
+    linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - 15) * 1deg),
+      #ffffff1f 0deg,
+      white,
+      #ffffff00 100deg
+    );
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-standard);
+  pointer-events: none;
+}
+.mf-glow:hover::before {
+  opacity: 1;
+}
+.mf-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--glow-card);
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-standard);
+  pointer-events: none;
+}
+.mf-glow:hover::after {
+  opacity: 1;
+}
+.mf-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Logo marquee ── */
+@keyframes mfMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.mf-marquee-track {
+  display: flex;
+  gap: var(--spacing-4xl);
+  width: max-content;
+  animation: mfMarquee 32s linear infinite;
+}
+.mf-marquee:hover .mf-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── Resume print sheet — isolated light-theme surface ── */
+.mf-sheet {
+  background: #fff;
+  color: #111;
+}
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  body {
+    background: #fff !important;
+  }
+  .mf-nonprint {
+    display: none !important;
+  }
+  .mf-sheet {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0;
+    padding: 0.7in 0.75in;
+    background: #fff;
+    color: #111;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .mf-sheet a {
+    color: #111;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mf-marquee-track {
+    animation: none;
+  }
+  .mf-glow::before,
+  .mf-glow::after {
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--amber-400);
+  color: var(--amber-ink);
+}
+
+a {
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
